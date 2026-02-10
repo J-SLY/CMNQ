@@ -13,10 +13,7 @@ private:
 	}
 public:
 	int do_this(std::vector<std::string>choices) {
-		system("cls");
-		for (size_t i = 0; i < choices.size(); i++) {
-			std::cout << "[" << ((choose_id == i) ? ">" : " ") << "]" << choices[i] << std::endl;
-		}
+		this->display(choices);
 		while (true) {
 			bool Key = false;
 			if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
