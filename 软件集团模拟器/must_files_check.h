@@ -17,6 +17,12 @@ public:
         if (!fs::is_directory("save")) {
             throw std::runtime_error("ND0002");
         }
+        if (!fs::exists("config/lan")) {
+            throw std::runtime_error("NF0001.2");
+        }
+        if (!fs::is_directory("config/lan")) {
+            throw std::runtime_error("ND0001.2");
+        }
         /*
         if (!fs::exists("Language")) {
             throw std::runtime_error("自检失败: 语言文件夹不存在");

@@ -4,7 +4,6 @@ int main(){
     try {
         check.do_this();
         std::vector<std::string> save_name_list = read.do_this();
-        std::cout << choose.do_this(save_name_list);
 
         _getch();
     }
