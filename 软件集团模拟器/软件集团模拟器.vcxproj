@@ -143,8 +143,10 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="choose_display.h" />
     <ClInclude Include="must_files_check.h" />
-    <ClInclude Include="save_read.h" />
+    <ClInclude Include="prepare.h" />
+    <ClInclude Include="save_name_read.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

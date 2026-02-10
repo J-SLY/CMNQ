@@ -23,7 +23,13 @@
     <ClInclude Include="must_files_check.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="save_read.h">
+    <ClInclude Include="save_name_read.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="prepare.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="choose_display.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

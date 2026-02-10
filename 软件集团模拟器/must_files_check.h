@@ -2,8 +2,9 @@
 #include<Windows.h>
 #include<filesystem>
 namespace fs = std::filesystem;
-void self_check() {
-
+class self_check {
+public:
+    void do_this(){
         if (!fs::exists("config")) {
             throw std::runtime_error("NF0001");
         }
@@ -34,3 +35,5 @@ void self_check() {
         }
         */
     }
+
+};
