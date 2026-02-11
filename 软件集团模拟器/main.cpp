@@ -8,12 +8,12 @@ int main(){
         _getch();
     }
     catch (const std::runtime_error& error) {
-        std::cerr << "启动失败，错误码：" << error.what() << " 请打开安装目录下的 help 文件夹查看错误原因" << std::endl;
+        std::cerr << "错误：" << error.what() << std::endl;
         
         _getch();
     }
     catch (const std::exception& error) {
-        std::cerr << "遇到未知异常，错误码：" << error.what() << " 请打开安装目录下的 help 文件夹查看错误原因" << std::endl;
+        std::cerr << "错误：" << error.what() << std::endl;
         _getch();
     }
 }

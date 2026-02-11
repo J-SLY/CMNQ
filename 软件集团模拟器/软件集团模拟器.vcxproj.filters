@@ -32,5 +32,11 @@
     <ClInclude Include="choose_display.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="lan_read.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="settings_io.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
