@@ -4,7 +4,7 @@
 #include<iostream>
 class choose_display{
 private:
-	int choose_id = 0;
+	size_t choose_id = 0;
 	void display(std::vector<std::string>choices) {
 		system("cls");
 		for (size_t i = 0; i < choices.size(); i++) {
@@ -31,7 +31,7 @@ public:
 			}
 			if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
 				Key = true;
-				if (choose_id + 1 == choices.size()) {
+				if (choose_id + static_cast<size_t>(1) == choices.size()) {
 					choose_id = 0;
 				}
 				else {
