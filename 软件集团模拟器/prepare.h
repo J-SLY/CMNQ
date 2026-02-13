@@ -3,6 +3,8 @@
 #include "save_name_read.h"
 #include "choose_display.h"
 #include "lan_read.h"
+#include "settings_io.h"
+#include "employee.h"
 #include <vector>
 #include <iostream>
 #include <conio.h>
