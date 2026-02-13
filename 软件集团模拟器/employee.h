@@ -3,7 +3,7 @@
 #include<map>
 #include<unordered_map>
 #include<vector>
-class all_employee{
+class all_employee {
 private:
     /*
     enum class positions {
@@ -133,31 +133,77 @@ private:
         // 顾问
         Consultant = 11       // 顾问
     };*/
-	struct employee {
-		std::string name;
-		std::string part;
+    struct employee {
+        std::string name;
+        std::string part;
         std::string position;
-		size_t salary;
-		size_t id;
-	};
+        size_t salary;
+        size_t id;
+        bool operator==(employee b) {
+            return name == b.name &&
+                part == b.part &&
+                position == b.position &&
+                id == b.id;
+        }
+    };
     struct employee_list {
         std::unordered_multimap<std::string, employee> employee_list_name;
         std::map<size_t, employee> employee_list_id;
         std::unordered_multimap<std::string, employee> employee_list_part;
         std::unordered_multimap<std::string, employee>employee_list_position;
+
     };
 public:
     employee_list employees;
-    bool add_employee(employee &emp) {
-        employees.employee_list_name.insert({emp.name, emp});
-        if (employees.employee_list_id.find(emp.id) != employees.employee_list_id.end()) {
+    bool add(employee emp) {
+        if (employees.employee_list_id.find(emp.id) == employees.employee_list_id.end()) {
             employees.employee_list_id.insert({ emp.id,emp });
         }
         else {
             return false;
         }
+        employees.employee_list_name.insert({ emp.name, emp });
         employees.employee_list_part.insert({ emp.part,emp });
         employees.employee_list_position.insert({ emp.position,emp });
-            
+        return true;
+    }
+    bool remove(employee emp) {
+        if (employees.employee_list_id.find(emp.id) == employees.employee_list_id.end() && employees.employee_list_name.equal_range(emp.name).first == employees.employee_list_name.end() && employees.employee_list_part.equal_range(emp.part).first == employees.employee_list_part.end() && employees.employee_list_position.equal_range(emp.position).first == employees.employee_list_position.end()) {
+            return false;
+        }
+        else {
+            employees.employee_list_id.erase(emp.id);
+            auto range_name = employees.employee_list_name.equal_range(emp.name);
+            for (auto it = range_name.first; it != range_name.second;) {
+                if (it->second == emp) {
+                    employees.employee_list_name.erase(it);
+                    break;
+                }
+                else {
+                    ++it;
+                }
+            }
+            auto range_part = employees.employee_list_part.equal_range(emp.part);
+            for (auto it = range_part.first; it != range_part.second;) {
+                if (it->second == emp) {
+                    employees.employee_list_part.erase(it);
+                    break;
+                }
+                else {
+                    ++it;
+                }
+            }
+            auto range_position = employees.employee_list_position.equal_range(emp.position);
+            for (auto it = range_position.first; it != range_position.second;) {
+                if (it->second == emp) {
+                    employees.employee_list_position.erase(it);
+                    break;
+                }
+                else {
+                    ++it;
+                }
+            }
+            return true;
+        }
     }
 };
