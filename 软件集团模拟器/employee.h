@@ -149,14 +149,15 @@ private:
 public:
     employee_list employees;
     bool add_employee(employee &emp) {
-        /*this->employees.employee_list_name[emp.name] = emp;
+        employees.employee_list_name.insert({emp.name, emp});
         if (employees.employee_list_id.find(emp.id) != employees.employee_list_id.end()) {
-            this->employees.employee_list_id[emp.id] = emp;
-        }else {
+            employees.employee_list_id.insert({ emp.id,emp });
+        }
+        else {
             return false;
         }
-        this->employees.employee_list_part[emp.part]=emp;
-        */
-
+        employees.employee_list_part.insert({ emp.part,emp });
+        employees.employee_list_position.insert({ emp.position,emp });
+            
     }
 };
